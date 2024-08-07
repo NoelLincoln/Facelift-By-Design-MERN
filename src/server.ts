@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI || '')
   .catch(err => console.log(err));
 
 // Routes
-app.use('/api/products', productRoutes);
+app.use('/api/v1/products', productRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
