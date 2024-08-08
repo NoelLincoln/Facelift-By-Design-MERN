@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import winston from 'winston';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -8,7 +9,7 @@ import productRoutes from './api/routes/productRoutes';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5003;
+const port = process.env.PORT || 5000;
 
 // Configure winston logger
 const logger = winston.createLogger({
@@ -25,9 +26,10 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || '')
+mongoose
+  .connect(process.env.MONGO_URI || '')
   .then(() => logger.info('MongoDB connected'))
-  .catch(err => logger.error(err));
+  .catch((err) => logger.error(err));
 
 // Routes
 app.use('/api/v1/products', productRoutes);
