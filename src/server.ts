@@ -9,7 +9,7 @@ import productRoutes from './api/routes/productRoutes';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5003;
+const port = process.env.PORT || 5000;
 
 // Configure winston logger
 const logger = winston.createLogger({
