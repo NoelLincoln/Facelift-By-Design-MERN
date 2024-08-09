@@ -17,6 +17,9 @@ COPY . .
 # Build the application
 RUN npm run build
 
+# Copy the .env file to the dist folder
+COPY .env ./dist/
+
 # Expose the port the app runs on
 EXPOSE 5000
 

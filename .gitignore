@@ -10,4 +10,4 @@ coverage/
 
 run/
 
-server.log
+*.log
